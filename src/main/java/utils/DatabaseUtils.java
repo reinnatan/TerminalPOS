@@ -1,5 +1,6 @@
 package utils;
 
+import entity.BillOrders;
 import entity.Menu;
 import entity.Menus;
 import entity.Orders;
@@ -16,19 +17,30 @@ import java.util.List;
 
 public class DatabaseUtils {
     public static String DB_ORDERS = "src/main/java/database/orders.xml";
-    public static String DB_MENUS = "src/main/java/database/menus.xml";
-    public static String DB_BILL_ORDERS = "src/main/java/database/orders.xml";
+    public static String DB_MENUS = "menus.xml";
+    public static String DB_BILL_ORDERS = "bill_orders.xml";
+    public static String PATH_DB =  DatabaseUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"/database";
 
     public static void writeObject(Object datas, String dbName) throws JAXBException {
-        JAXBContext context = JAXBContext.newInstance(Orders.class);
+        File folder = new File(PATH_DB);
+        if(!folder.exists()){
+            folder.mkdir();
+        }
+        JAXBContext context = null;
+        if(datas.getClass().getName().contains("Menus")) {
+            context = JAXBContext.newInstance(Menus.class);
+        }else if(datas.getClass().getName().contains("BillOrders")){
+            context = JAXBContext.newInstance(BillOrders.class);
+        }
+
         Marshaller m = context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         m.marshal(datas, new File(dbName));
     }
 
-    public static Object readObject() throws JAXBException, FileNotFoundException {
-        JAXBContext context = JAXBContext.newInstance(Menus.class);
-        return context.createUnmarshaller().unmarshal(new FileReader(DB_MENUS));
+    public static Object readObject(Class classType, String dbName) throws JAXBException, FileNotFoundException {
+        JAXBContext context = JAXBContext.newInstance(classType);
+        return context.createUnmarshaller().unmarshal(new FileReader(dbName));
     }
 
 

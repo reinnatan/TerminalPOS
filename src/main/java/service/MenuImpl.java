@@ -3,10 +3,7 @@ package service;
 import entity.Menu;
 import entity.Menus;
 import utils.DatabaseUtils;
-
-import javax.xml.bind.JAXBException;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
@@ -14,8 +11,8 @@ import java.util.UUID;
 public class MenuImpl implements MenuActions{
     private Menus getMenus() throws Exception{
         Menus menus;
-        if (new File(DatabaseUtils.DB_MENUS).exists()) {
-            menus = (Menus) DatabaseUtils.readObject();
+        if (new File(DatabaseUtils.PATH_DB+File.separator+DatabaseUtils.DB_MENUS).exists()) {
+            menus = (Menus) DatabaseUtils.readObject(Menus.class, DatabaseUtils.PATH_DB+File.separator+DatabaseUtils.DB_MENUS);
         }else{
             menus = new Menus();
             menus.setMenus(new ArrayList<>());
@@ -42,6 +39,19 @@ public class MenuImpl implements MenuActions{
     }
 
     @Override
+    public Menu searchMenu(String searchId) throws Exception{
+        Menus menus = getMenus();
+        Menu selectedMenu = null;
+        for(Menu menu: menus.getMenus()){
+            if(menu.getId().equalsIgnoreCase(searchId)){
+                selectedMenu = menu;
+                break;
+            }
+        }
+        return selectedMenu;
+    }
+
+    @Override
     public void addMenus(String menuName, String descriptionMenu, double price) throws Exception {
         Menus menus = getMenus();
         Menu menu = new Menu();
@@ -50,7 +60,7 @@ public class MenuImpl implements MenuActions{
         menu.setDescription(descriptionMenu);
         menu.setPrice(price);
         menus.getMenus().add(menu);
-        DatabaseUtils.writeObject(menus, DatabaseUtils.DB_MENUS);
+        DatabaseUtils.writeObject(menus, DatabaseUtils.PATH_DB+File.separator+DatabaseUtils.DB_MENUS);
         System.out.println("Add menu success....");
     }
 
@@ -61,17 +71,17 @@ public class MenuImpl implements MenuActions{
             if(menu.getId().equalsIgnoreCase(id)){
                 menus.getMenus().remove(menu);
                 System.out.println("Delete menu is success...");
-                DatabaseUtils.writeObject(menus, DatabaseUtils.DB_MENUS);
+                DatabaseUtils.writeObject(menus, DatabaseUtils.PATH_DB+File.separator+DatabaseUtils.DB_MENUS);
                 break;
             }
         }
     }
 
     @Override
-    public void updateMenus(String id) throws Exception {
+    public void updateMenus(String id, Scanner sc) throws Exception {
         displayMenus();
         Menus menus = getMenus();
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
         for(Menu menu : menus.getMenus()) {
             if (menu.getId().equalsIgnoreCase(id)) {
                 System.out.print("Used existing name menu? (y/n) : ");
@@ -98,7 +108,7 @@ public class MenuImpl implements MenuActions{
                     menu.setPrice(price);
                 }
 
-                DatabaseUtils.writeObject(menus, DatabaseUtils.DB_MENUS);
+                DatabaseUtils.writeObject(menus, DatabaseUtils.PATH_DB+File.separator+DatabaseUtils.DB_MENUS);
                 System.out.println("Update menu is successfully...");
                 break;
             }

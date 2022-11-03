@@ -8,14 +8,14 @@ import java.util.List;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Orders {
-    private Menus orderMenus;
+    private Menu orderMenus;
     private int countOrder;
 
-    public Menus getOrderMenus() {
+    public Menu getOrderMenus() {
         return orderMenus;
     }
 
-    public void setOrderMenus(Menus orderMenus) {
+    public void setOrderMenus(Menu orderMenus) {
         this.orderMenus = orderMenus;
     }
 

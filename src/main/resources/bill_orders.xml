@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<billorders>
+    <listBillOrder>
+        <orderId>12231046-a2df-4572-8236-238a4ea4ada2</orderId>
+        <isPay>true</isPay>
+        <listMenuOrder>
+            <countOrder>5</countOrder>
+            <orderMenus>
+                <id>125f8a7d-faed-472b-ba52-e519b34ebc8c</id>
+                <menuNames>sate padang</menuNames>
+                <description>sate lidah padang dengan cabe</description>
+                <price>35000.0</price>
+            </orderMenus>
+        </listMenuOrder>
+        <listMenuOrder>
+            <countOrder>2</countOrder>
+            <orderMenus>
+                <id>27327cc6-e5e5-4d65-8ac7-ee913dfece7a</id>
+                <menuNames>Nasi goreng</menuNames>
+                <description>Nasi goreng padang dengan empal gentong</description>
+                <price>45000.0</price>
+            </orderMenus>
+        </listMenuOrder>
+        <historyLog>2019-11-23T17:09:48.887+07:00</historyLog>
+    </listBillOrder>
+    <listBillOrder>
+        <orderId>6e4fa8f6-0458-4a64-bdb3-493af51b8768</orderId>
+        <isPay>true</isPay>
+        <listMenuOrder>
+            <countOrder>3</countOrder>
+            <orderMenus>
+                <id>db825eb4-b36c-4dab-b3c9-f84940ac9f03</id>
+                <menuNames>Bakso Semarang</menuNames>
+                <description>Bakso sapi dan kambing khas semarang</description>
+                <price>45000.0</price>
+            </orderMenus>
+        </listMenuOrder>
+        <historyLog>2022-11-24T21:09:50.613+07:00</historyLog>
+    </listBillOrder>
+</billorders>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menus>
+    <menus>
+        <id>27327cc6-e5e5-4d65-8ac7-ee913dfece7a</id>
+        <menuNames>Nasi goreng</menuNames>
+        <description>Nasi goreng padang dengan empal gentong</description>
+        <price>45000.0</price>
+    </menus>
+    <menus>
+        <id>125f8a7d-faed-472b-ba52-e519b34ebc8c</id>
+        <menuNames>sate padang</menuNames>
+        <description>sate lidah padang dengan cabe</description>
+        <price>35000.0</price>
+    </menus>
+    <menus>
+        <id>e5af014f-c70d-4b82-9621-bd7317707cf6</id>
+        <menuNames>Nasi gila</menuNames>
+        <description>Nasi gila dengan telor bebek</description>
+        <price>35000.0</price>
+    </menus>
+    <menus>
+        <id>1e036786-afc7-44b2-ab0a-bec02593dcf7</id>
+        <menuNames>Rujak Cingur</menuNames>
+        <description>Rujak Cingur Surabaya</description>
+        <price>55000.0</price>
+    </menus>
+    <menus>
+        <id>db825eb4-b36c-4dab-b3c9-f84940ac9f03</id>
+        <menuNames>Bakso Semarang</menuNames>
+        <description>Bakso sapi dan kambing khas semarang</description>
+        <price>45000.0</price>
+    </menus>
+    <menus>
+        <id>a56421ce-377c-4d80-93c7-02e00e2974ed</id>
+        <menuNames>Nasi uduk &amp; telor pedas</menuNames>
+        <description>Nasi uduk dan telor pedas</description>
+        <price>25000.0</price>
+    </menus>
+</menus>

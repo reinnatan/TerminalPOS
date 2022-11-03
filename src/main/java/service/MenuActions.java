@@ -1,13 +1,16 @@
 package service;
 
+import entity.Menu;
 import entity.Menus;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public interface MenuActions {
-    public void displayMenus() throws Exception;
-    public void addMenus(String menuNames, String description, double price) throws Exception;
-    public void deleteMenus(String id) throws Exception;
-    public void updateMenus(String id) throws Exception;
+    void displayMenus() throws Exception;
+    void addMenus(String menuNames, String description, double price) throws Exception;
+    void deleteMenus(String id) throws Exception;
+    void updateMenus(String id, Scanner sc) throws Exception;
+    Menu searchMenu(String searchId) throws Exception;
 }

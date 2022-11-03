@@ -3,16 +3,17 @@ package entity;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @XmlRootElement(name = "billorder")
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class BillOrder {
 
     private String orderId;
     private boolean isPay;
-    private List<Orders>listMenuOrder;
+    private List<Orders>listMenuOrder= new ArrayList<Orders>();
     private Date historyLog;
 
     public String getOrderId() {
@@ -46,4 +47,6 @@ public class BillOrder {
     public void setHistoryLog(Date historyLog) {
         this.historyLog = historyLog;
     }
+
+
 }
